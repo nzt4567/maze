@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Taken from https://en.wikipedia.org/wiki/Maze_generation_algorithm
 import numpy
 from numpy.random import random_integers as rand
 
