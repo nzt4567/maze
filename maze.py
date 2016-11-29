@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import numpy as np
 from collections import deque
 
@@ -64,7 +66,7 @@ class Maze:
                     b"X": lambda x, y: (x, y)}
 
         if self.distances[row, column] == -1:
-            raise Exception("Wrong start")
+            raise IndexError("Wrong start")
 
         ret = [(row, column)]
         while True:
@@ -79,9 +81,6 @@ def analyze(maze):
     return Maze(maze)
 
 
-def test():
-    pass
-
 if __name__ == '__main__':
     in_maze = np.array([[-1, 0, 0, 0, -1, -1],
                         [-1, -1, -1, 0, 0, -1],
@@ -91,5 +90,18 @@ if __name__ == '__main__':
                         [0, 0, 0, 0, -1, 0],
                         [0, -1, -1, 0, 0, -1],
                         [0, 1, 0, 0, -1, -1]])
+    print("Example input")
+    print(in_maze)
+
     m = analyze(in_maze)
+    print("m.directions")
+    print(m.directions)
+
+    print("m.distances")
+    print(m.distances)
+
+    print("m.is_reachable")
+    print(m.is_reachable)
+
+    print("m.path(5, 3)")
     print(m.path(5, 3))
